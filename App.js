@@ -18,10 +18,11 @@ import RacoesPetisco from './pages/RacoesPetisco';
 import Chat from './pages/Chat';
 import Sacola from './pages/Sacola';
 import PerfilUsuario from './pages/PerfilUsuario';
+import chatTalk from './assets/chatTalk';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const App = ({ navigation }) => {
 
         useEffect(() => {
             AsyncStorage.getItem('codigo').then(codigo => {
@@ -144,14 +145,23 @@ const App = () => {
                         options={{
                             title: 'Chat de Conversa',
                             headerStyle: {
-                                backgroundColor: '#FFF',
+                                backgroundColor: 'rgba(32,121,225,0.73)',
+                                height:100
                             },
 
-                            headerTintColor: 'black',
+                            headerTintColor: 'white',
                             headerTitleStyle: {
                                 fontWeight: 'bold',
                             }
                         }}
+                    />
+                    <Stack.Screen
+                        name='ChatTalk'
+                        component={chatTalk}
+                        //initialParams={{ ChatTalk: "itemId" }}
+                        // options={{
+                        //     title: navigation.getParam('itemId', 'A Nested Details Screen')
+                        // }}
                     />
                     <Stack.Screen
                         name='Sacola'
