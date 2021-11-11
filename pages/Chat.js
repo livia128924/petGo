@@ -42,7 +42,7 @@ function Chat({ navigation }) {
   ]);
 function chatW(i){
  // alert(i);
- navigation.navigate('ChatTalk', {
+ navigation.navigate('ChatScreen', {
   itemId: i,
   //otherParam: 'anything you want here',
 });

@@ -4,7 +4,7 @@ import { Card, ListItem, Button, Icon } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { icon } from "../assets/vet_icon.jpg";
-
+import * as TalkRn from '@talkjs/react-native';
 function chatTalk(props) {
 //    navigation.setParams({ title: "new title" })
 //alert(itemId);
@@ -13,6 +13,7 @@ useEffect(() => {
     props.navigation.setOptions({ title: itemId });
 
 }, []);
+
 
   return (
 

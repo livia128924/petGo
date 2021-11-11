@@ -18,7 +18,9 @@ import RacoesPetisco from './pages/RacoesPetisco';
 import Chat from './pages/Chat';
 import Sacola from './pages/Sacola';
 import PerfilUsuario from './pages/PerfilUsuario';
-import chatTalk from './assets/chatTalk';
+import chatTalk from './pages/chatTalk';
+import AppChatScreen from './pages/AppChatScreen';
+import ChatScreen from './pages/chatScreen';
 
 const Stack = createStackNavigator();
 
@@ -60,6 +62,20 @@ const App = ({ navigation }) => {
                     <Stack.Screen
                         name='Untitled1'
                         component={Untitled1}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
+                    <Stack.Screen
+                        name='AppChatScreen'
+                        component={AppChatScreen}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
+                    <Stack.Screen
+                        name='ChatScreen'
+                        component={ChatScreen}
                         options={{
                             headerShown: false,
                         }}
