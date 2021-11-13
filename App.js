@@ -99,15 +99,16 @@ const App = ({ navigation }) => {
                         name='AgendarConsulta'
                         component={AgendarConsulta}
                         options={{
-                            title: 'Agendar Consulta',
+                            title: '',
+                            // headerShadowVisible: false,
                             headerStyle: {
-                                backgroundColor: '#FFF',
+                                backgroundColor: 'white',
+                                elevation: 0,
+                                shadowOpacity: 0
+
                             },
 
-                            headerTintColor: 'black',
-                            headerTitleStyle: {
-                                fontWeight: 'bold',
-                            }
+
                         }}
                     />
                     <Stack.Screen
