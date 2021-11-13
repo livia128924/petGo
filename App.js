@@ -18,13 +18,10 @@ import RacoesPetisco from './pages/RacoesPetisco';
 import Chat from './pages/Chat';
 import Sacola from './pages/Sacola';
 import PerfilUsuario from './pages/PerfilUsuario';
-import chatTalk from './pages/chatTalk';
-import AppChatScreen from './pages/AppChatScreen';
-import ChatScreen from './pages/chatScreen';
 
 const Stack = createStackNavigator();
 
-const App = ({ navigation }) => {
+const App = () => {
 
         useEffect(() => {
             AsyncStorage.getItem('codigo').then(codigo => {
@@ -62,20 +59,6 @@ const App = ({ navigation }) => {
                     <Stack.Screen
                         name='Untitled1'
                         component={Untitled1}
-                        options={{
-                            headerShown: false,
-                        }}
-                    />
-                    <Stack.Screen
-                        name='AppChatScreen'
-                        component={AppChatScreen}
-                        options={{
-                            headerShown: false,
-                        }}
-                    />
-                    <Stack.Screen
-                        name='ChatScreen'
-                        component={ChatScreen}
                         options={{
                             headerShown: false,
                         }}
@@ -162,23 +145,14 @@ const App = ({ navigation }) => {
                         options={{
                             title: 'Chat de Conversa',
                             headerStyle: {
-                                backgroundColor: 'rgba(32,121,225,0.73)',
-                                height:100
+                                backgroundColor: '#FFF',
                             },
 
-                            headerTintColor: 'white',
+                            headerTintColor: 'black',
                             headerTitleStyle: {
                                 fontWeight: 'bold',
                             }
                         }}
-                    />
-                    <Stack.Screen
-                        name='ChatTalk'
-                        component={chatTalk}
-                        //initialParams={{ ChatTalk: "itemId" }}
-                        // options={{
-                        //     title: navigation.getParam('itemId', 'A Nested Details Screen')
-                        // }}
                     />
                     <Stack.Screen
                         name='Sacola'
