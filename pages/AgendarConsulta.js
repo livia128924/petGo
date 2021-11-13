@@ -204,6 +204,7 @@ function AgendarConsulta({ navigation }) {
                     //onPressTitle("se_rrj", "checkbox_value", muda(), sync);
                   }}
                 /> */}
+                <Text>asdasd</Text>
                 <RadioButton
                 animation={'bounceIn'}
                 isSelected={true}
