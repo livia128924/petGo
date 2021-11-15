@@ -1,20 +1,83 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
+
 import { StyleSheet, View, Text, Image, AsyncStorage } from "react-native";
+import { Card, ListItem, Button, Icon } from "react-native-elements";
+import { Avatar } from "react-native-elements/dist/avatar/Avatar";
+import { TouchableOpacity } from "react-native-gesture-handler";
+//import { icon } from "../assets/vet_icon.jpg";
 
+function Chat({ navigation }) {
+  const image = require("../assets/shampoo-pet.png");
+  const imag2 = require("../assets/shampoo-pet.png");
+  const SAM = require("../assets/shampoo-pet.png");
+  const petHouse = require("../assets/shampoo-pet.png");
+  const BanhoeCia = require("../assets/shampoo-pet.png");
+  const Auau = require("../assets/shampoo-pet.png");
 
-function Chat({navigation}) {
+  const [users, setUsers] = useState([
+    {
+    name: "Clinica Amor Pet",
+    avatar: image,
+    description: "(92) 3024-6531"
+   },
+    {
+      name: "Manaus Au Aus Clínica Veterinária",
+      avatar: Auau,
+      description: "(92) 98130-9090",
+    },
+    {
+      name: "Banho e Cia",
+      avatar: BanhoeCia,
+      description: "(92) 99115-0283",
+    },
+    {
+      name: "Pet House & Cia",
+      avatar: petHouse,
+      description: "(92) 98556-7881",
+    },
+    {
+      name: "PET SAM",
+      avatar: SAM,
+      description: "(92) 98152-2998",
+    },
+  ]);
 
-
-  return (
-    <View style={styles.container}>
-   <Text>Converse com a clinica pelo chat</Text>
-    </View>
-  );
+function chatW(i){
+ // alert(i);
+ navigation.navigate('ChatScreen', {
+  itemId: i,
+  //otherParam: 'anything you want here',
+});
 }
+  return (
+
+      <View style={styles.container}>
+        <Text style={{fontSize:20, marginTop:20, marginLeft:20,marginRight:20}}>Converse com a clinica pelo chat</Text>
+
+
+
+      <View style={{ marginTop: 20 }}>
+        {users.map((l, i) => (
+          <TouchableOpacity  key={i} onPress={()=> chatW(l.name)}>
+          <ListItem bottomDivider>
+            <Avatar size="medium" rounded source={l.avatar} />
+            <ListItem.Content>
+              <ListItem.Title>{l.name}</ListItem.Title>
+              <ListItem.Subtitle>{l.description}</ListItem.Subtitle>
+            </ListItem.Content>
+          </ListItem>
+          </TouchableOpacity>
+        ))}
+      </View>
+      </View>
+
+)
+    }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor:'white'
   },
   rect: {
     width: 277,

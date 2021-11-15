@@ -93,7 +93,6 @@ function HomeScreen({ navigation }) {
             <Text style={{width:'50%',alignItems:'center', alignContent:'center', alignSelf:'center',
           }}>Dogs</Text>
           </TouchableOpacity>
-
           <TouchableOpacity onPress={() => alert("aves")}>
             <View style={{  width: 100, height: 100 }}>
               <View style={styles.rect37}></View>

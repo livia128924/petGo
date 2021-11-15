@@ -10,7 +10,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import Picker from 'react-native-picker-select';
+//import Picker from 'react-native-picker-select';
 
 function ForgotPassword({navigation}) {
 
