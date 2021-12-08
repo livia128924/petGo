@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import {
+  CheckBox,
   StyleSheet,
   View,
   Text,
@@ -7,7 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-//import { AsyncStorage} from "@react-native-async-storage/async-storage"
 import { Avatar, Accessory } from "react-native-elements";
 import { TextInput } from "react-native-gesture-handler";
 //import Checkbox from "expo-checkbox";
@@ -15,22 +15,16 @@ import RadioButton from "react-native-radio-button";
 import { Button } from "react-native-elements";
 import Constants from "expo-constants";
 
-function AgendarConsulta({ navigation }) {
+function AgendarBanho({ navigation }) {
+
   const [enderecoText, setEnderecoText] = useState("");
-  const [OpenService, setOpenService] = useState(false);
-  const [ServiceValue, setServiceValue] = useState(null);
-  const [ServiceItems, setServiceItems] = useState([
-    { label: "Consulta CLinica", value: "1" },
-    { label: "Vacina", value: "2" },
-    { label: "Coleta de Sangue", value: "3" },
-    { label: "Exame de Imagem*", value: "4" },
-    { label: "Consulta Dermatológica", value: "5" },
-    { label: "Retorno (30 minutos)*", value: "6" },
-    { label: "Cirurgia (1 Hora)*", value: "7" },
-    { label: "Cirurgia (2 horas)*", value: "8" },
-    { label: "Cirurgia (3 horas)*", value: "9" },
-    { label: "Atendimento Atestado de Saúde", value: "10" },
-    { label: "Aplicação de Cytopoint*", value: "11" },
+  const [OpenBanho, setOpenBanho] = useState(false);
+  const [BanhoValue, setBanhoValue] = useState(null);
+  const [BanhoItems, setBanhoItems] = useState([
+    { label: "Banho de cachorros", value: "1" },
+    { label: "Banho de gato", value: "2" },
+    { label: "Banho de pássaro", value: "3" },
+    { label: "Banho de peixe", value: "4" },
   ]);
 
   const [checkbox_value, set_checkbox_value] = useState([
@@ -39,7 +33,7 @@ function AgendarConsulta({ navigation }) {
     { label: "Meu CEP", id: 3, isChecked: false },
   ]);
 
-  const [isServico, setIsServico] = useState(false);
+  const [isBanho, setIsBanho] = useState(false);
   const [isEndereco, setIsEndereco] = useState(false);
   const [isCep, setIsCep] = useState(false);
   const [isContainerResult, setIsContainerResult] = useState(false);
@@ -189,18 +183,18 @@ function AgendarConsulta({ navigation }) {
         <View style={{ marginTop: 20, marginLeft: 15, marginRight: 15 }}>
           <DropDownPicker
             style={styles.input}
-            open={OpenService}
-            value={ServiceValue}
-            items={ServiceItems}
-            setOpen={setOpenService}
-            setValue={setServiceValue}
-            setItems={setServiceItems}
+            open={OpenBanho}
+            value={BanhoValue}
+            items={BanhoItems}
+            setOpen={setOpenBanho}
+            setValue={setBanhoValue}
+            setItems={setBanhoItems}
             placeholder="Selecione:"
-            onChangeValue={() => setIsServico(true)}
+            onChangeValue={() => setIsBanho(true)}
           />
         </View>
         <View>
-          {isServico ? (
+          {isBanho ? (
             <View>
               <Text style={{ top: 10 }}>Passo 3</Text>
 
@@ -530,4 +524,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AgendarConsulta;
+export default AgendarBanho;

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { AsyncStorage, Button, Text } from "react-native";
+import {Text, Image } from "react-native";
+import { Button } from "react-native-elements";
+import Icon from 'react-native-vector-icons/FontAwesome';
+//import { AsyncStorage} from "@react-native-async-storage/async-storage"
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./pages/HomeScreen";
@@ -21,15 +24,37 @@ import PerfilUsuario from "./pages/PerfilUsuario";
 import NovoPet from "./pages/NovoPet";
 import ChatScreen from "./pages/chatScreen";
 import AppChatScreen from "./pages/AppChatScreen";
+import Cadastrar from "./pages/Cadastrar";
+import AgendarBanho from "./pages/AgendarBanho";
+import AgendarTosa from "./pages/AgendarTosa";
 
 const Stack = createStackNavigator();
 
+// function LogoTitle({navigation}) {
+//   return (
+//     <Button
+//     buttonStyle={{backgroundColor:'white', width:'auto', height:'auto', marginRight:20}}
+//     title=""
+
+//     icon={
+//       <Icon
+//       name="shopping-cart"
+//       size={20}
+//       color="black"
+//       />
+//     }
+//     onPress={()=> navigation.navigate("Sacola")}//verificar isso
+//     />
+//   );
+// }
+
 const App = () => {
-  useEffect(() => {
-    AsyncStorage.getItem("codigo").then((codigo) => {
-      console.log(codigo);
-    });
-  }, []);
+  // useEffect(() => {
+  //   AsyncStorage.getItem("codigo").then((codigo) => {
+  //     console.log(codigo);
+  //   });
+  // }, []);
+
 
   return (
     <NavigationContainer>
@@ -38,7 +63,7 @@ const App = () => {
           name="HomeScreen"
           component={HomeScreen}
           options={{
-            title: "SGRF - SECT",
+            title: "",
             headerStyle: {
               backgroundColor: "#FFF",
             },
@@ -54,6 +79,21 @@ const App = () => {
           component={Login}
           options={{
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Cadastrar"
+          component={Cadastrar}
+          options={{
+            title: "Cadastre-se",
+            headerStyle: {
+              backgroundColor: "#FFF",
+            },
+
+            headerTintColor: "black",
+            headerTitleStyle: {
+              fontWeight: "normal",
+            },
           }}
         />
         <Stack.Screen
@@ -128,15 +168,7 @@ const App = () => {
           name="ProdutosLimpeza"
           component={ProdutosLimpeza}
           options={{
-            title: "Produtos de Limpeza",
-            headerStyle: {
-              backgroundColor: "#FFF",
-            },
-
-            headerTintColor: "black",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
+            headerTitle: "Produtos de Limpeza"
           }}
         />
         <Stack.Screen
@@ -155,10 +187,10 @@ const App = () => {
           }}
         />
         <Stack.Screen
-          name="RacoesPetisco"
-          component={RacoesPetisco}
+          name="AgendarBanho"
+          component={AgendarBanho}
           options={{
-            title: "Rações e Petisco",
+            title: "Banho e Tosa",
             headerStyle: {
               backgroundColor: "#FFF",
             },
@@ -167,6 +199,29 @@ const App = () => {
             headerTitleStyle: {
               fontWeight: "bold",
             },
+          }}
+        />
+        <Stack.Screen
+          name="AgendarTosa"
+          component={AgendarTosa}
+          options={{
+            title: "Banho e Tosa",
+            headerStyle: {
+              backgroundColor: "#FFF",
+            },
+
+            headerTintColor: "black",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="RacoesPetisco"
+          component={RacoesPetisco}
+          options={{
+            headerTitle: "produtos",
+            //headerRight:props => <LogoTitle {...props} />
           }}
         />
         <Stack.Screen

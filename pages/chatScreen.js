@@ -4,10 +4,6 @@ import {
   View,
   Linking,
   Text,
-  ScrollView,
-  WebView,
-  Platform,
-  Button,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { List, ListItem } from "react-native-elements";

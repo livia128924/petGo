@@ -5,7 +5,6 @@ import {
   View,
   Text,
   Image,
-  AsyncStorage,
   ScrollView,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";

@@ -1,17 +1,46 @@
-import React, { Component, useEffect } from "react";
-import { StyleSheet, View, Text, Image, AsyncStorage } from "react-native";
+import React, { Component, useEffect, useState } from "react";
+import { StyleSheet, View, Text, Image } from "react-native";
+import Toast from 'react-native-simple-toast';
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import MaterialButtonPrimary from "../components/MaterialButtonPrimary";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
+import api from "../../services/api";
 
 function Untitled1({navigation}) {
+  const [valueEmail, setValueEmail] =useState("");
+  const [valuesenha, setValueSenha] =useState("");
+
+
+  const handleSignInPress = async () => {
+
+    if (valueEmail.length === 0 || valuesenha.length === 0) {
+      Toast.showWithGravity(
+        'Preencha todos os dados para continuar!',
+        Toast.LONG,
+        Toast.BOTTOM
+        );
+
+        return false;
+    }
+
+    const response = await api.post("login", {email:valueEmail, senha:valuesenha});
+    const {data} = response;
+
+    if (data) {
+       // console.log(data);
+       // await AsyncStorage.setItem("codigo_cli", data.codigo.toString());
+         navigation.navigate("HomeScreen");
+    }
+    else {
+      Toast.showWithGravity(
+        'Usiario nao encontrado ',
+        Toast.LONG,
+        Toast.BOTTOM
+        );
+
+    }
+}
 //   useEffect(() => {
 
 //     AsyncStorage.getItem('codigo').then(codigo => {
@@ -25,13 +54,11 @@ function Untitled1({navigation}) {
 //   alert("pkl");
 // }
 
-// const handleSignInPress = async () => {
-//   // if (login.length === 0 || password.length === 0) {
-//   //     setError('Preencha usuário e senha para continuar!');
-//   // }
-//     //AsyncStorage.setItem('codigo', codigo);
+const Cadastrar = () => {
+  ///alert("ok")
+ navigation.navigate("Cadastrar");
+}
 
-// };
 
   return (
     <>
@@ -41,12 +68,16 @@ function Untitled1({navigation}) {
         <TextInput
         style={styles.eMail}
         placeholder="E-mail"
+        value={valueEmail}
+        onChangeText={setValueEmail}
         ></TextInput>
       </View>
       <View style={styles.rect2}>
         <TextInput
         style={styles.senha}
         placeholder="Senha"
+        value={valuesenha}
+        onChangeText={setValueSenha}
         ></TextInput>
       </View>
       <Text style={styles.login}>Login</Text>
@@ -68,7 +99,8 @@ function Untitled1({navigation}) {
     <View style={{ alignContent:'center'}}>
    <TouchableOpacity
     style={styles.materialButtonPrimary}
-    onPress={()=> navigation.navigate("HomeScreen")}
+    // onPress={()=> navigation.navigate("HomeScreen")}
+    onPress={() => handleSignInPress()}
     >
       <Text style={styles.buttonText}>Entrar</Text>
    </TouchableOpacity>
@@ -76,9 +108,9 @@ function Untitled1({navigation}) {
      </View>
 
 
-      <View style={{top:20}}>
+      <View style={{top:20, height:'100%'}}>
 
-        <Text style={styles.ou}>OU</Text>
+        {/* <Text style={styles.ou}>OU</Text>
         <TouchableOpacity onPress={()=>alert("google")}>
       <View style={styles.icon2Row}>
         <EvilIconsIcon
@@ -87,17 +119,25 @@ function Untitled1({navigation}) {
           ></EvilIconsIcon>
         <Text style={styles.entrarComOGoogle}>Entrar com o Google</Text>
       </View>
-</TouchableOpacity>
+</TouchableOpacity> */}
 
 
            {/* <Text style={styles.naoPossuoCadastro}>Nao possuo cadastro.</Text> */}
-          <TouchableOpacity  onPress={()=>alert("facebook")}>
+          {/* <TouchableOpacity  onPress={()=>alert("facebook")}>
       <View style={styles.icon2Row}>
         <MaterialCommunityIconsIcon
           name="facebook"
           style={styles.icon}
         ></MaterialCommunityIconsIcon>
         <Text style={styles.entrarPeloFacebook}>Entrar pelo Facebook</Text>
+      </View>
+      </TouchableOpacity> */}
+
+
+          <TouchableOpacity  onPress={Cadastrar}>
+      <View style={styles.icon2Row}>
+
+        <Text style={styles.entrarPeloFacebook} style={{textDecorationLine:'underline', color:'black'}}>Ainda nao sou cadastrado</Text>
       </View>
       </TouchableOpacity>
           </View>

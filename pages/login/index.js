@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, AsyncStorage} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import api from '../../services/api';
 import {
     Container,
@@ -17,15 +17,15 @@ const Login = ({navigation}) => {
     const [error, setError] = useState('');
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        AsyncStorage.getItem('codigo').then(codigo => {
-            if (codigo) {
-                navigation.navigate("HomeScreen");
-                return false;
-            }
-        });
-    }, []);
+    //     AsyncStorage.getItem('codigo').then(codigo => {
+    //         if (codigo) {
+    //             navigation.navigate("HomeScreen");
+    //             return false;
+    //         }
+    //     });
+    // }, []);
 
     const handleSignInPress = async () => {
         if (login.length === 0 || password.length === 0) {
@@ -39,7 +39,7 @@ const Login = ({navigation}) => {
                     const codigo = response.data.dados.painel_usuario_logado;
 
                     if (status === 'OK') {
-                        AsyncStorage.setItem('codigo', codigo);
+                       // AsyncStorage.setItem('codigo', codigo);
                         navigation.navigate('HomeScreen');
                     } else {
                         setError(msg);
@@ -55,7 +55,7 @@ const Login = ({navigation}) => {
         <SafeAreaView style={{flex: 1}}>
             <Container>
 
-                <Logo source={require('../../assets/SectVerde.png')} resizeMode="contain"/>
+                {/* <Logo source={require('../../assets/SectVerde.png')} resizeMode="contain"/> */}
 
                 <Input
                     placeholder="usuário"

@@ -6,23 +6,18 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import Svg, { Ellipse } from "react-native-svg";
 import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import CupertinoFooter2 from "./components/CupertinoFooter2";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
+
 import MenuButtun from "./components/menuButton";
-import { ScrollView } from "react-native-gesture-handler";
 
 function HomeScreen({ navigation }) {
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView>
       <View style={styles.icon3Stack}>
         <View>
@@ -135,7 +130,7 @@ function HomeScreen({ navigation }) {
                 </View>
               </View> */}
 </ScrollView>
-<View style={{top:80}}>
+<View style={{position:'relative', bottom:0}}>
       <CupertinoFooter2  navigation= {navigation}></CupertinoFooter2>
       </View>
     </View>
@@ -145,7 +140,7 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    //backgroundColor: "red",
   },
 
   rect16: {

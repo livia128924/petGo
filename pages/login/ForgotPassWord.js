@@ -1,15 +1,10 @@
 import React, { Component, useEffect } from "react";
-import { StyleSheet, View, Text, TextInput, Image, AsyncStorage } from "react-native";
+import { StyleSheet, View, Text, TextInput, Image,} from "react-native";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import MaterialButtonPrimary from "../components/MaterialButtonPrimary";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
+
 //import Picker from 'react-native-picker-select';
 
 function ForgotPassword({navigation}) {

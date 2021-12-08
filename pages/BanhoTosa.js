@@ -1,127 +1,61 @@
 import React, { Component, useEffect } from "react";
 import { StyleSheet, View, Text, Image, AsyncStorage } from "react-native";
-
+import { BackgroundImage } from "react-native-elements/dist/config";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 function BanhoTosa({navigation}) {
 
 
   return (
     <View style={styles.container}>
-   <Text>Agende o horario</Text>
+   <Text style={styles.selec}>Selecione a opção desejada:</Text>
+   <View style={{justifyContent:'center', alignItems:'center'}}>
+
+
+   <TouchableOpacity  onPress={()=> navigation.navigate("AgendarBanho")}>
+     <BackgroundImage style={styles.imageBanhoTosa}
+       source={require("../assets/banho.png")}/>
+         <Text style={styles.textBanhoTosa}>Banho</Text>
+   </TouchableOpacity>
+
+   <TouchableOpacity onPress={()=> navigation.navigate("AgendarTosa")}>
+     <BackgroundImage style={styles.imageBanhoTosa}
+       source={require("../assets/tosa.jpg")}/>
+         <Text style={styles.textBanhoTosa}>Tosa</Text>
+   </TouchableOpacity>
+       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "white"
   },
-  rect: {
-    width: 277,
-    height: 52,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: "rgba(224,229,234,1)",
-    marginTop: 320,
-    marginLeft: 52
-  },
-  eMail: {
-    color: "rgba(144,144,144,1)",
-    marginTop: 18,
-    marginLeft: 23
-  },
-  rect2: {
-    width: 277,
-    height: 52,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: "rgba(224,229,234,1)",
-    marginTop: 11,
-    marginLeft: 52
-  },
-  senha: {
-    color: "rgba(144,144,144,1)",
-    fontSize: 14,
-    marginTop: 17,
-    marginLeft: 23
-  },
-  login: {
-    color: "rgba(3,194,205,1)",
-    fontSize: 30,
-    marginTop: -191,
-    marginLeft: 52
-  },
-  naoPossuoCadastro: {
-    color: "#121212",
-    textDecorationLine: "underline",
-    marginTop: 468,
-    marginLeft: 124
-  },
-  icon: {
-    color: "rgba(74,144,226,1)",
-    fontSize: 40
-  },
-  entrarPeloFacebook: {
-    color: "#121212",
-    fontSize: 14,
-    marginLeft: 11,
-    marginTop: 11
-  },
-  iconRow: {
-    height: 44,
-    flexDirection: "row",
-    marginTop: -173,
-    marginLeft: 67,
-    marginRight: 126
-  },
-  icon2: {
-    color: "rgba(74,144,226,1)",
-    fontSize: 40
-  },
-  entrarComOGoogle: {
-    color: "#121212",
-    fontSize: 14,
-    marginLeft: 12,
-    marginTop: 9
-  },
-  icon2Row: {
-    height: 44,
-    flexDirection: "row",
+
+  selec: {
+    fontSize: 15,
     marginTop: 20,
-    marginLeft: 69,
-    marginRight: 126
+    marginLeft: 20
+
   },
-  ou: {
-    color: "#121212",
-    fontSize: 20,
-    marginTop: -144,
-    alignSelf: "center"
+  imageBanhoTosa: {
+    marginTop: 50,
+   // marginLeft: 30,
+    width: 300,
+    height: 150,
+    opacity: 0.5,
+    borderRadius: 5,
+    borderWidth: 2
   },
-  login1: {
-    color: "rgba(130,130,130,1)",
-    fontSize: 13,
-    marginTop: -300,
-    marginLeft: 52
-  },
-  image: {
-    height: 96,
-    width: 124,
-    marginTop: -181,
-    alignSelf: "center"
-  },
-  esqueceuSuaSenha: {
-    color: "#121212",
-    textDecorationLine: "underline",
-    marginTop: 232,
-    marginLeft: 196
-  },
-  materialButtonPrimary: {
-    height: 52,
-    width: 277,
-    borderRadius: 6,
-    backgroundColor: "rgba(3,194,205,1)",
-    marginTop: 14,
-    marginLeft: 52
+  textBanhoTosa: {
+    fontSize: 40,
+    alignSelf: "center",
+    marginTop: 90,
+    justifyContent: "center",
+    position: "absolute",
+    fontWeight: "bold",
   }
 });
 

@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 
-import { StyleSheet, View, Text, Image, AsyncStorage } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { Card, ListItem, Button, Icon } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -8,21 +8,23 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 function Chat({ navigation }) {
   const image = require("../assets/shampoo-pet.png");
+  const vet = require("../assets/vet_Icon.jpeg");
   const imag2 = require("../assets/shampoo-pet.png");
-  const SAM = require("../assets/shampoo-pet.png");
-  const petHouse = require("../assets/shampoo-pet.png");
-  const BanhoeCia = require("../assets/shampoo-pet.png");
-  const Auau = require("../assets/shampoo-pet.png");
+  const auaus = require("../assets/auaus.png");
+  const SAM = require("../assets/petSAM.jpg");
+  const petHouse = require("../assets/pethouse.jpg");
+  const BanhoeCia = require("../assets/banhoecia.jpg");
+
 
   const [users, setUsers] = useState([
     {
     name: "Clinica Amor Pet",
-    avatar: image,
+    avatar: vet,
     description: "(92) 3024-6531"
    },
     {
       name: "Manaus Au Aus Clínica Veterinária",
-      avatar: Auau,
+      avatar: auaus,
       description: "(92) 98130-9090",
     },
     {
